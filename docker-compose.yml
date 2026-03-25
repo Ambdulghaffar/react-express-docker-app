@@ -1,0 +1,40 @@
+services:
+  # Base de données
+  db:
+    image: postgres:18-alpine
+    container_name: postgres-db
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: mydatabase
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql
+
+  # Backend Express
+  api:
+    build: ./backend
+    container_name: express-api
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./backend:/app        
+      - /app/node_modules      
+    depends_on:
+      - db
+
+  # Frontend React
+  client:
+    build: ./frontend
+    container_name: react-client
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./frontend:/app          
+      - /app/node_modules      
+    depends_on:
+      - api
+
+volumes:
+  postgres_data:
