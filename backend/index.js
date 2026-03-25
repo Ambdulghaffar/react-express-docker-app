@@ -9,6 +9,8 @@ app.use(express.json()); // Permet de parser le corps des requêtes en JSON
 let todos = [
   { id: 1, text: "Apprende Docker", completed: false },
   { id: 2, text: "Maîtriser Express", completed: false },
+  {id: 3, text: "Créer une application fullstack", completed: false },
+  {id: 4, text: "Déployer sur Docker Hub", completed: false },
 ];
 
 // Endpoint pour récupérer les tâches

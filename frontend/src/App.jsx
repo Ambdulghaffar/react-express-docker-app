@@ -62,7 +62,7 @@ function App() {
             placeholder="Ajouter une nouvelle tâche..."
             className="flex-1 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
           />
-          <button className="bg-blue-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-blue-700 transition">
+          <button className="bg-blue-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-blue-700 transition cursor-pointer">
             Ajouter
           </button>
         </form>
@@ -76,7 +76,7 @@ function App() {
               <span className="text-gray-700 font-medium">{todo.text}</span>
               <button
               onClick={()=> deleteTodo(todo.id)}
-               className="text-red-500 hover:text-red-700 font-bold">
+               className="text-red-500 hover:text-red-700 font-bold cursor-pointer">
                 ✕
               </button>
             </li>
